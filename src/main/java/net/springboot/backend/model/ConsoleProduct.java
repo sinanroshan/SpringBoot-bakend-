@@ -17,70 +17,67 @@ public class ConsoleProduct {
     private String name;
 
 	@Column(name="p_barcode")
-	private String Barcode;
+	private String barcode;
 
-	//@Column(name="id")
-	//private String category;
+	@Column(name="p_godown")
+	private String category;
 
     @Column(name="p_category")
-	private String Sub_Category;
+	private String sub_Category;
 
     @Column(name = "p_punit")
 	private String unit;
     
 	@Column(name = "p_hsn")
-	private String HSN_Code;	
+	private String hsn_Code;	
     
     @Column(name = "p_tax")
-	private String GST;
+	private String gst;
 
     @Column(name = "cessp")
-	private String Cess;
+	private String cess;
 
     @Column(name = "p_curr_stock")
-	private String Current_Stock;
+	private String current_Stock;
 
     @Column(name = "p_opstock")
-	private String Opening_Stock;
+	private String opening_Stock;
 
     @Column(name = "p_pprice")
-	private String Purchase_Rate;
+	private String purchase_Rate;
 
     @Column(name = "p_srate1")
-	private String Retail_Rate;
+	private String retail_Rate;
 
     @Column(name = "mrp")
-	private String Mrp;
+	private String mrp;
 
     @Column(name = "cost")
-	private String Cost;
+	private String cost;
     
     @Column(name = "p_srate2")
-	private String Whole_Rate;
+	private String whole_Rate;
 
-    public ConsoleProduct(String productID, String name, String barcode, String sub_Category, String unit,
-            String hSN_Code, String gST, String cess, String current_Stock, String opening_Stock, String purchase_Rate,
-            String retail_Rate, String mrp, String cost, String whole_Rate) {
+    public ConsoleProduct(String productID, String name, String barcode, String category, String sub_Category,
+            String unit, String hsn_Code, String gst, String cess, String current_Stock, String opening_Stock,
+            String purchase_Rate, String retail_Rate, String mrp, String cost, String whole_Rate) {
         this.productID = productID;
         this.name = name;
-        Barcode = barcode;
-        Sub_Category = sub_Category;
+        this.barcode = barcode;
+        this.category = category;
+        this.sub_Category = sub_Category;
         this.unit = unit;
-        HSN_Code = hSN_Code;
-        GST = gST;
-        Cess = cess;
-        Current_Stock = current_Stock;
-        Opening_Stock = opening_Stock;
-        Purchase_Rate = purchase_Rate;
-        Retail_Rate = retail_Rate;
-        Mrp = mrp;
-        Cost = cost;
-        Whole_Rate = whole_Rate;
+        this.hsn_Code = hsn_Code;
+        this.gst = gst;
+        this.cess = cess;
+        this.current_Stock = current_Stock;
+        this.opening_Stock = opening_Stock;
+        this.purchase_Rate = purchase_Rate;
+        this.retail_Rate = retail_Rate;
+        this.mrp = mrp;
+        this.cost = cost;
+        this.whole_Rate = whole_Rate;
     }
-
-    public ConsoleProduct() {
-		// TODO Auto-generated constructor stub
-	}
 
     public String getProductID() {
         return productID;
@@ -99,19 +96,27 @@ public class ConsoleProduct {
     }
 
     public String getBarcode() {
-        return Barcode;
+        return barcode;
     }
 
     public void setBarcode(String barcode) {
-        Barcode = barcode;
+        this.barcode = barcode;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getSub_Category() {
-        return Sub_Category;
+        return sub_Category;
     }
 
     public void setSub_Category(String sub_Category) {
-        Sub_Category = sub_Category;
+        this.sub_Category = sub_Category;
     }
 
     public String getUnit() {
@@ -122,84 +127,84 @@ public class ConsoleProduct {
         this.unit = unit;
     }
 
-    public String getHSN_Code() {
-        return HSN_Code;
+    public String getHsn_Code() {
+        return hsn_Code;
     }
 
-    public void setHSN_Code(String hSN_Code) {
-        HSN_Code = hSN_Code;
+    public void setHsn_Code(String hsn_Code) {
+        this.hsn_Code = hsn_Code;
     }
 
-    public String getGST() {
-        return GST;
+    public String getGst() {
+        return gst;
     }
 
-    public void setGST(String gST) {
-        GST = gST;
+    public void setGst(String gst) {
+        this.gst = gst;
     }
 
     public String getCess() {
-        return Cess;
+        return cess;
     }
 
     public void setCess(String cess) {
-        Cess = cess;
+        this.cess = cess;
     }
 
     public String getCurrent_Stock() {
-        return Current_Stock;
+        return current_Stock;
     }
 
     public void setCurrent_Stock(String current_Stock) {
-        Current_Stock = current_Stock;
+        this.current_Stock = current_Stock;
     }
 
     public String getOpening_Stock() {
-        return Opening_Stock;
+        return opening_Stock;
     }
 
     public void setOpening_Stock(String opening_Stock) {
-        Opening_Stock = opening_Stock;
+        this.opening_Stock = opening_Stock;
     }
 
     public String getPurchase_Rate() {
-        return Purchase_Rate;
+        return purchase_Rate;
     }
 
     public void setPurchase_Rate(String purchase_Rate) {
-        Purchase_Rate = purchase_Rate;
+        this.purchase_Rate = purchase_Rate;
     }
 
     public String getRetail_Rate() {
-        return Retail_Rate;
+        return retail_Rate;
     }
 
     public void setRetail_Rate(String retail_Rate) {
-        Retail_Rate = retail_Rate;
+        this.retail_Rate = retail_Rate;
     }
 
     public String getMrp() {
-        return Mrp;
+        return mrp;
     }
 
     public void setMrp(String mrp) {
-        Mrp = mrp;
+        this.mrp = mrp;
     }
 
     public String getCost() {
-        return Cost;
+        return cost;
     }
 
     public void setCost(String cost) {
-        Cost = cost;
+        this.cost = cost;
     }
 
     public String getWhole_Rate() {
-        return Whole_Rate;
+        return whole_Rate;
     }
 
     public void setWhole_Rate(String whole_Rate) {
-        Whole_Rate = whole_Rate;
+        this.whole_Rate = whole_Rate;
     }
 
 }

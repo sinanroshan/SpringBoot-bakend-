@@ -14,4 +14,11 @@ public interface ConsoleRepository extends JpaRepository<Product, Any>{
     @Query(value="SELECT * FROM product", nativeQuery = true)
 	public List<String[]>ShowAll();
     
+    //public void saveProduct();
+
+    @Query(value="SELECT Max(id)+1 FROM product", nativeQuery = true)
+    public String getPid();
+
+    @Query(value="SELECT p_name from product WHERE p_name like :key% ", nativeQuery = true)
+    public List<String> getPnames(String key);
 }

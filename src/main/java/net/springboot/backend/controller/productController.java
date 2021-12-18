@@ -5,12 +5,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import java.io.IOException;
 import java.util.List;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import net.springboot.backend.model.Product;
 import net.springboot.backend.repository.ProductRepository;
@@ -49,11 +55,13 @@ public class productController {
 			return productRepository.findByProductId(pid);
 	}
 	
+	
 	//@PostMapping("/save/product")
-	//public Product createProduct(@RequestParam ("image1") MultipartFile image1, @RequestParam ("product") String product) throws IOException, JsonMappingException, JsonProcessingException {
+	//public void createProduct( @RequestParam ("product") String product) throws IOException, JsonMappingException, JsonProcessingException {
 	//	Product prod = new ObjectMapper().readValue(product, Product.class);
-	//	prod.setImage1(image1.getBytes());
+		//prod.setImage1(image1.getBytes());
 		//return productRepository.save(prod);
+	//	System.out.println("prod");
 	//}
 	
 	
