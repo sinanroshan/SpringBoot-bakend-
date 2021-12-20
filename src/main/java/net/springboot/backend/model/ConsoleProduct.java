@@ -11,7 +11,7 @@ public class ConsoleProduct {
     
     @Id
     @Column(name="id")
-	private String productID;
+	private Integer productID;
 
     @Column(name = "p_name")
     private String name;
@@ -25,7 +25,7 @@ public class ConsoleProduct {
     @Column(name="p_category")
 	private String sub_Category;
 
-    @Column(name = "p_punit")
+    @Column(name = "p_unit")
 	private String unit;
     
 	@Column(name = "p_hsn")
@@ -35,7 +35,7 @@ public class ConsoleProduct {
 	private String gst;
 
     @Column(name = "cessp")
-	private String cess;
+	private Integer cess;
 
     @Column(name = "p_curr_stock")
 	private String current_Stock;
@@ -58,8 +58,8 @@ public class ConsoleProduct {
     @Column(name = "p_srate2")
 	private String whole_Rate;
 
-    public ConsoleProduct(String productID, String name, String barcode, String category, String sub_Category,
-            String unit, String hsn_Code, String gst, String cess, String current_Stock, String opening_Stock,
+    public ConsoleProduct(Integer productID, String name, String barcode, String category, String sub_Category,
+            String unit, String hsn_Code, String gst, Integer cess, String current_Stock, String opening_Stock,
             String purchase_Rate, String retail_Rate, String mrp, String cost, String whole_Rate) {
         this.productID = productID;
         this.name = name;
@@ -79,11 +79,11 @@ public class ConsoleProduct {
         this.whole_Rate = whole_Rate;
     }
 
-    public String getProductID() {
+    public Integer getProductID() {
         return productID;
     }
 
-    public void setProductID(String productID) {
+    public void setProductID(Integer productID) {
         this.productID = productID;
     }
 
@@ -143,11 +143,11 @@ public class ConsoleProduct {
         this.gst = gst;
     }
 
-    public String getCess() {
+    public Integer getCess() {
         return cess;
     }
 
-    public void setCess(String cess) {
+    public void setCess(Integer cess) {
         this.cess = cess;
     }
 
