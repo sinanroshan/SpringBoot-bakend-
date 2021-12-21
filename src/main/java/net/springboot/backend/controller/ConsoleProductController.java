@@ -25,7 +25,7 @@ public class ConsoleProductController {
 
     @GetMapping("/Allproducts")
 	// get all Products
-			public List<String[]>
+			public List<ConsoleProduct>
 			getAllProducts(){
 		    return consoleRepository.ShowAll();
             }

@@ -58,9 +58,13 @@ public class ConsoleProduct {
     @Column(name = "p_srate2")
 	private String whole_Rate;
 
+    @Column(name = "p_photo")
+    private String KayImage;
+
+
     public ConsoleProduct(Integer productID, String name, String barcode, String category, String sub_Category,
             String unit, String hsn_Code, String gst, Integer cess, String current_Stock, String opening_Stock,
-            String purchase_Rate, String retail_Rate, String mrp, String cost, String whole_Rate) {
+            String purchase_Rate, String retail_Rate, String mrp, String cost, String whole_Rate,String kayImage) {
         this.productID = productID;
         this.name = name;
         this.barcode = barcode;
@@ -77,7 +81,15 @@ public class ConsoleProduct {
         this.mrp = mrp;
         this.cost = cost;
         this.whole_Rate = whole_Rate;
+        KayImage = kayImage;
+        
     }
+
+
+    public ConsoleProduct() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
     public Integer getProductID() {
         return productID;
@@ -206,5 +218,17 @@ public class ConsoleProduct {
     public void setWhole_Rate(String whole_Rate) {
         this.whole_Rate = whole_Rate;
     }
+
+
+    public String getKayImage() {
+        return KayImage;
+    }
+
+
+    public void setKayImage(String kayImage) {
+        KayImage = kayImage;
+    }
+
+    
 
 }

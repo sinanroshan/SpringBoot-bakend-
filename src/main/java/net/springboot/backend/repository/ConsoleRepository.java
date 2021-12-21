@@ -9,13 +9,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
-import net.springboot.backend.model.Product;
+import net.springboot.backend.model.ConsoleProduct;
 
-public interface ConsoleRepository extends JpaRepository<Product, Any>{
+public interface ConsoleRepository extends JpaRepository<ConsoleProduct, Any>{
 
     //list All
     @Query(value="SELECT * FROM product", nativeQuery = true)
-	public List<String[]>ShowAll();
+	public List<ConsoleProduct>ShowAll();
     
     @Modifying
 	@Transactional
