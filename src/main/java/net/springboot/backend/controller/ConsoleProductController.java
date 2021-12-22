@@ -30,14 +30,23 @@ public class ConsoleProductController {
 		    return consoleRepository.ShowAll();
             }
     @PostMapping("/AddProduct")
-	//method = RequestMethod.POST, consumes = "application/json"
 	public String Addproduct(@RequestBody ConsoleProduct product) {
-		System.out.println(product.getProductID());
 			consoleRepository.saveProduct(product.getName(), product.getProductID(),product.getBarcode(),product.getCategory(),product.getSub_Category(),
 					product.getUnit(),product.getHsn_Code(),product.getGst(),product.getCess(),product.getCurrent_Stock(),product.getOpening_Stock(),
 					product.getPurchase_Rate(),product.getRetail_Rate(),product.getMrp(),product.getCost(),product.getWhole_Rate());
 			return "sved";
-			}
+			}	
+	//@PostMapping("/EditProduct")
+	@RequestMapping(path = "EditProduct/{key}/",method = RequestMethod.POST)		
+	public String EditProduct(@PathVariable String key,@RequestBody ConsoleProduct product) {
+		System.out.println(key);
+		System.out.println(product.getMrp());
+			//consoleRepository.UpdateProduct(product.getName(), product.getProductID(),product.getBarcode(),product.getCategory(),product.getSub_Category(),
+			//product.getUnit(),product.getHsn_Code(),product.getGst(),product.getCess(),product.getCurrent_Stock(),product.getOpening_Stock(),
+			//product.getPurchase_Rate(),product.getRetail_Rate(),product.getMrp(),product.getCost(),product.getWhole_Rate());
+			return "Updated";
+			}	
+	
 
 	@GetMapping(value="/pid")
 	public String pid() {
