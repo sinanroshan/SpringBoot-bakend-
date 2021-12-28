@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import net.springboot.backend.model.ConsoleProduct;
 import net.springboot.backend.repository.ConsoleRepository;
@@ -32,11 +33,11 @@ public class ConsoleProductController {
 	
 	//@PostMapping("/SaveImage")
 	@RequestMapping(path = "SaveImage/",method = RequestMethod.POST)
-	public String SaveImage(@RequestParam("name") String filename,@RequestParam("type") String type){
+	public String SaveImage(@RequestParam("name") String filename,@RequestParam("type") String type,@RequestBody MultipartFile image){
 	//public String SaveImage(@RequestBody Image image){
 		System.out.println(filename);
 		System.out.println(type);
-		//System.out.println(image.getOriginalFilename());
+		System.out.println(image.getSize());
 		return "done";
 	}
 
