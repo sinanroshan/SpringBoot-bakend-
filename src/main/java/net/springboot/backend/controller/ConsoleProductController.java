@@ -1,8 +1,12 @@
 package net.springboot.backend.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.nio.file.Files;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,22 +39,25 @@ public class ConsoleProductController {
 	//@PostMapping("/SaveImage")
 	@RequestMapping(value = "SaveImage/",method = RequestMethod.POST, consumes = { "multipart/form-data" })
 	public String SaveImage(@RequestPart("name") String filename,@RequestPart("type") String type,@RequestPart("imageFile") MultipartFile image){
-	//public String SaveImage(@RequestBody Image image){
-		System.out.println(filename);
-		System.out.println(type);
-		if (!image.isEmpty()){
-		System.out.println(image.getOriginalFilename());
-		}
-		else{System.out.println("null value"); }
-		return "done";
+		try {
+		File path = new File("E:\\TEST\\angular\\Ecomerce-Console\\src\\assets\\images\\products\\" + filename+""+type+".jpg");
+		path.createNewFile();
+		FileOutputStream output = new FileOutputStream(path);
+		output.write(image.getBytes());
+		output.close();
+		return (path).toString();
+	} catch (Exception e) {
+		return "Errorr";
 	}
+	}
+	
 
     @PostMapping(value =  "/AddProduct")
 	public String Addproduct(@RequestBody ConsoleProduct product){
 			consoleRepository.saveProduct(product.getName(), product.getProductID(),product.getBarcode(),product.getCategory(),product.getSub_Category(),
 				product.getUnit(),product.getHsn_Code(),product.getGst(),product.getCess(),product.getCurrent_Stock(),product.getOpening_Stock(),
-				product.getPurchase_Rate(),product.getRetail_Rate(),product.getMrp(),product.getCost(),product.getWhole_Rate(),product.getKayImage().toString(),
-				"PDT"+product.getBarcode());
+				product.getPurchase_Rate(),product.getRetail_Rate(),product.getMrp(),product.getCost(),product.getWhole_Rate(),product.getKeyImage(),
+				product.getImage1(),product.getImage2(),product.getImage3(),product.getImage4(),"PDT"+product.getBarcode());
 			return "sved";
 			}
 	

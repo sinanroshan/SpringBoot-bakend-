@@ -62,12 +62,24 @@ public class ConsoleProduct {
 	private String whole_Rate;
 
     @Column(name = "p_photo")
-    private String KayImage;
+    private String KeyImage;
 
+    @Column(name = "p_photo1")
+    private String image1;
+
+    @Column(name = "p_photo2")
+    private String image2;
+
+    @Column(name = "p_photo3")
+    private String image3;
+
+    @Column(name = "p_photo4")
+    private String image4;
 
     public ConsoleProduct(Integer productID, String name, String barcode, String category, String sub_Category,
             String unit, String hsn_Code, String gst, Integer cess, String current_Stock, String opening_Stock,
-            String purchase_Rate, String retail_Rate, String mrp, String cost, String whole_Rate,String kayImage) {
+            String purchase_Rate, String retail_Rate, String mrp, String cost, String whole_Rate, String keyImage,
+            String image1, String image2, String image3, String image4) {
         this.productID = productID;
         this.name = name;
         this.barcode = barcode;
@@ -84,154 +96,141 @@ public class ConsoleProduct {
         this.mrp = mrp;
         this.cost = cost;
         this.whole_Rate = whole_Rate;
-        KayImage = kayImage;
-        
+        KeyImage = keyImage;
+        this.image1 = image1;
+        this.image2 = image2;
+        this.image3 = image3;
+        this.image4 = image4;
     }
-
-
     public ConsoleProduct() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
     public Integer getProductID() {
         return productID;
     }
-
     public void setProductID(Integer productID) {
         this.productID = productID;
     }
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public String getBarcode() {
         return barcode;
     }
-
     public void setBarcode(String barcode) {
         this.barcode = barcode;
     }
-
     public String getCategory() {
         return category;
     }
-
     public void setCategory(String category) {
         this.category = category;
     }
-
     public String getSub_Category() {
         return sub_Category;
     }
-
     public void setSub_Category(String sub_Category) {
         this.sub_Category = sub_Category;
     }
-
     public String getUnit() {
         return unit;
     }
-
     public void setUnit(String unit) {
         this.unit = unit;
     }
-
     public String getHsn_Code() {
         return hsn_Code;
     }
-
     public void setHsn_Code(String hsn_Code) {
         this.hsn_Code = hsn_Code;
     }
-
     public String getGst() {
         return gst;
     }
-
     public void setGst(String gst) {
         this.gst = gst;
     }
-
     public Integer getCess() {
         return cess;
     }
-
     public void setCess(Integer cess) {
         this.cess = cess;
     }
-
     public String getCurrent_Stock() {
         return current_Stock;
     }
-
     public void setCurrent_Stock(String current_Stock) {
         this.current_Stock = current_Stock;
     }
-
     public String getOpening_Stock() {
         return opening_Stock;
     }
-
     public void setOpening_Stock(String opening_Stock) {
         this.opening_Stock = opening_Stock;
     }
-
     public String getPurchase_Rate() {
         return purchase_Rate;
     }
-
     public void setPurchase_Rate(String purchase_Rate) {
         this.purchase_Rate = purchase_Rate;
     }
-
     public String getRetail_Rate() {
         return retail_Rate;
     }
-
     public void setRetail_Rate(String retail_Rate) {
         this.retail_Rate = retail_Rate;
     }
-
     public String getMrp() {
         return mrp;
     }
-
     public void setMrp(String mrp) {
         this.mrp = mrp;
     }
-
     public String getCost() {
         return cost;
     }
-
     public void setCost(String cost) {
         this.cost = cost;
     }
-
     public String getWhole_Rate() {
         return whole_Rate;
     }
-
     public void setWhole_Rate(String whole_Rate) {
         this.whole_Rate = whole_Rate;
     }
-
-
-    public String getKayImage() {
-        return KayImage;
+    public String getKeyImage() {
+        return KeyImage;
     }
-
-
-    public void setKayImage(String kayImage) {
-        KayImage = kayImage;
+    public void setKeyImage(String keyImage) {
+        KeyImage = keyImage;
     }
-
-    
+    public String getImage1() {
+        return image1;
+    }
+    public void setImage1(String image1) {
+        this.image1 = image1;
+    }
+    public String getImage2() {
+        return image2;
+    }
+    public void setImage2(String image2) {
+        this.image2 = image2;
+    }
+    public String getImage3() {
+        return image3;
+    }
+    public void setImage3(String image3) {
+        this.image3 = image3;
+    }
+    public String getImage4() {
+        return image4;
+    }
+    public void setImage4(String image4) {
+        this.image4 = image4;
+    }
 
 }
