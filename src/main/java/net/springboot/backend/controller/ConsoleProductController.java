@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -32,12 +33,15 @@ public class ConsoleProductController {
             }
 	
 	//@PostMapping("/SaveImage")
-	@RequestMapping(path = "SaveImage/",method = RequestMethod.POST)
-	public String SaveImage(@RequestParam("name") String filename,@RequestParam("type") String type,@RequestBody MultipartFile image){
+	@RequestMapping(value = "SaveImage/",method = RequestMethod.POST, consumes = { "multipart/form-data" })
+	public String SaveImage(@RequestPart("name") String filename,@RequestPart("type") String type,@RequestPart("imageFile") MultipartFile image){
 	//public String SaveImage(@RequestBody Image image){
 		System.out.println(filename);
 		System.out.println(type);
-		System.out.println(image.getSize());
+		if (!image.isEmpty()){
+		System.out.println(image.getOriginalFilename());
+		}
+		else{System.out.println("null value"); }
 		return "done";
 	}
 
@@ -57,7 +61,7 @@ public class ConsoleProductController {
 			product.getPurchase_Rate(),product.getRetail_Rate(),product.getMrp(),product.getCost(),product.getWhole_Rate());
 			return "Updated";
 			}	
-	
+	//
 
 	@GetMapping(value="/pid")
 	public String pid() {
