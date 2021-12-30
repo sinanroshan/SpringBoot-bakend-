@@ -41,11 +41,16 @@ public class ConsoleProductController {
 	public String SaveImage(@RequestPart("name") String filename,@RequestPart("type") String type,@RequestPart("imageFile") MultipartFile image){
 		try {
 		File path = new File("E:\\TEST\\angular\\Ecomerce-Console\\src\\assets\\images\\products\\" + filename+""+type+".jpg");
+		File path1 = new File("E:\\TEST\\angular\\eComerce\\src\\assets\\images\\products\\" + filename+""+type+".jpg");
 		path.createNewFile();
+		path1.createNewFile();
 		FileOutputStream output = new FileOutputStream(path);
+		FileOutputStream output1 = new FileOutputStream(path1);
 		output.write(image.getBytes());
 		output.close();
-		return (path).toString();
+		output1.write(image.getBytes());
+		output1.close();
+		return "../assets/images/products/"+ filename+""+type+".jpg";
 	} catch (Exception e) {
 		return "Errorr";
 	}
@@ -54,6 +59,7 @@ public class ConsoleProductController {
 
     @PostMapping(value =  "/AddProduct")
 	public String Addproduct(@RequestBody ConsoleProduct product){
+		System.out.println(product.getName());
 			consoleRepository.saveProduct(product.getName(), product.getProductID(),product.getBarcode(),product.getCategory(),product.getSub_Category(),
 				product.getUnit(),product.getHsn_Code(),product.getGst(),product.getCess(),product.getCurrent_Stock(),product.getOpening_Stock(),
 				product.getPurchase_Rate(),product.getRetail_Rate(),product.getMrp(),product.getCost(),product.getWhole_Rate(),product.getKeyImage(),
@@ -65,7 +71,8 @@ public class ConsoleProductController {
 	public String EditProduct(@PathVariable String key,@RequestBody ConsoleProduct product) {
 			consoleRepository.UpdateProduct(key,product.getName(), product.getProductID(),product.getBarcode(),product.getCategory(),product.getSub_Category(),
 			product.getUnit(),product.getHsn_Code(),product.getGst(),product.getCess(),product.getCurrent_Stock(),product.getOpening_Stock(),
-			product.getPurchase_Rate(),product.getRetail_Rate(),product.getMrp(),product.getCost(),product.getWhole_Rate());
+			product.getPurchase_Rate(),product.getRetail_Rate(),product.getMrp(),product.getCost(),product.getWhole_Rate(),product.getKeyImage(),
+			product.getImage1(),product.getImage2(),product.getImage3(),product.getImage4() );
 			return "Updated";
 			}	
 	//

@@ -3,7 +3,6 @@ package net.springboot.backend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,12 +21,12 @@ public class productController {
 	@Autowired
 	private ProductRepository productRepository;
 	
-	@GetMapping("/products")
+	//@GetMapping("/products")
 	// get all Products
-			public List<Product>
-			getAllProducts(){
-		return productRepository.findAll();	
-	}
+	//		public List<Product>
+	//		getAllProducts(){
+	//	return productRepository.findAll();	
+	//}
 	
 	@RequestMapping(path="/products/{Category}",method = RequestMethod.GET)
 	public List<Product> getProducts(@PathVariable String Category) {
@@ -43,9 +42,9 @@ public class productController {
 	public List<Product> serachKey(@PathVariable String key){
 		return productRepository.findByPnameContaining(key);
 	}
-	@RequestMapping(path="/product/{pid}",method = RequestMethod.GET)
-	public List<Product> getProduct(@PathVariable String pid) {
-			return productRepository.findByProductId(pid);
+	@RequestMapping(path="/product/{name}",method = RequestMethod.GET)
+	public List<Product> getProduct(@PathVariable String name) {
+			return productRepository.findByProductId(name);
 	}
 	
 	

@@ -16,8 +16,8 @@ import net.springboot.backend.model.Product;
 public interface ProductRepository extends CrudRepository<Product, Any>{
 	
 	//list All
-	@Query(value="SELECT * FROM product", nativeQuery = true)
-	public List<Product>findAll();
+	//@Query(value="SELECT * FROM product", nativeQuery = true)
+	//public Iterable<Any> findAll();
 	//by Category
 	public List<Product>findByPcategory(String Category);
 	//Search
@@ -26,6 +26,7 @@ public interface ProductRepository extends CrudRepository<Product, Any>{
 	@Query(value="SELECT * FROM product WHERE product.p_name like :key% or product.p_category like :key%", nativeQuery = true)
 	public List<Product>findByPnameContaining(String key);
 	
-	public List<Product>findByProductId(String pid);
+	@Query(value = "SELECT * FROM product WHERE product.p_name =:pname" , nativeQuery = true)
+	public List<Product>findByProductId(String pname);
 
 }
