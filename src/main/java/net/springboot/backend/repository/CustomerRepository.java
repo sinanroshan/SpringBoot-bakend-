@@ -64,7 +64,7 @@ public interface CustomerRepository extends JpaRepository<Customer, String>{
 			+ "WHERE inv_no =:inv_no", nativeQuery = true)
 	public void saveOrderAdress(String phone, String inv_no );
 	
-	@Query(value = "select inv_no from order_inv", nativeQuery = true)
+	@Query(value = "select inv_no from orders", nativeQuery = true)
 	public String[] getInv();
 	
 	@Modifying
@@ -72,13 +72,13 @@ public interface CustomerRepository extends JpaRepository<Customer, String>{
 	@Query(value = "INSERT INTO inv_bill (invno,pid, pname,pqty,pcategory,price,mrp,tprice,order_status) VALUES (:inv,:p_id,:p_name,:p_qty,:pcategory,:price,:mrp,:tprice,:status)", nativeQuery = true)
 	public void saveBill(String inv,String p_id, String p_name, String p_qty,String pcategory,String price,String mrp,String tprice,String status);
 
-	@Query(value = "SELECT inv_no,total_amount,prod_qty, order_date, order_status from order_inv WHERE c_id=:key ORDER BY inv_no DESC",nativeQuery = true)
+	@Query(value = "SELECT inv_no,total_amount,prod_qty, order_date, order_status from orders WHERE c_id=:key ORDER BY inv_no DESC",nativeQuery = true)
 	public String[][] getOrder(String key);
 	
 	@Query(value = "SELECT * from inv_bill WHERE invno=:key",nativeQuery = true)
 	public List<String[]> getProdList(String key);
 	
-	@Query(value = "SELECT * from order_inv WHERE inv_no=:key",nativeQuery = true)
+	@Query(value = "SELECT * from orders WHERE inv_no=:key",nativeQuery = true)
 	public List<String[]> getBill(String key);
 
 	@Modifying
@@ -93,7 +93,7 @@ public interface CustomerRepository extends JpaRepository<Customer, String>{
 
 	@Modifying
 	@Transactional
-	@Query(value = "UPDATE order_inv SET \r\n"
+	@Query(value = "UPDATE orders SET \r\n"
 			+ "order_status =:status \r\n"
 			+ "WHERE inv_no =:invno" , nativeQuery = true)
 	public void OrderStatus(String invno, String status );

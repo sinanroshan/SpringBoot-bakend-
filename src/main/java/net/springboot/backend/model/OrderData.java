@@ -1,21 +1,40 @@
 package net.springboot.backend.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class OrderData {
 
-
+    @Id
+    @Column(name = "inv_no")
 	private String invno;
+    @Column(name = "c_id")
     private String customerID;
+    @Column(name = "total_amount")
     private String totalAmound;
+    @Column(name = "prod_qty")
     private String orderQty;
+    @Column(name = "order_date")
     private String orderDate;
+    @Column(name = "c_fullname")
     private String c_FullName;
+    @Column(name = "c_phone")
     private String c_phone;
+    @Column(name = "c_place")
     private String c_place;
+    @Column(name = "c_home_no")
     private String c_home;
+    @Column(name = "c_pin")
     private String c_pin;
+    @Column(name = "c_landmark")
     private String c_landmark;
+    @Column(name = "c_city")
     private String c_City;
+    @Column(name = "order_status")
     private String orderStatus;
+
     public OrderData(String invno, String customerID, String totalAmound, String orderQty, String orderDate,
             String c_FullName, String c_phone, String c_place, String c_home, String c_pin, String c_landmark,
             String c_City, String orderStatus) {
