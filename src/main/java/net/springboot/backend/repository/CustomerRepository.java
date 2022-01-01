@@ -48,12 +48,12 @@ public interface CustomerRepository extends JpaRepository<Customer, String>{
 	
 	@Modifying
 	@Transactional
-	@Query(value= "INSERT INTO order_inv (c_id, total_amount,prod_qty, order_date,order_status) VALUES (:phone,:total_price,:qty,:date,:status)", nativeQuery = true)
+	@Query(value= "INSERT INTO orders (c_id, total_amount,prod_qty, order_date,order_status) VALUES (:phone,:total_price,:qty,:date,:status)", nativeQuery = true)
 	public void saveOrder(String phone, Integer qty, String total_price,String date, String status);
 	
 	@Modifying
 	@Transactional
-	@Query(value = "UPDATE order_inv SET \r\n"
+	@Query(value = "UPDATE orders SET \r\n"
 			+ "c_fullname =( SELECT fullName FROM customer WHERE phone = :phone ),\r\n"
 			+ "c_phone=( SELECT mobNo FROM customer WHERE phone = :phone),\r\n"
 			+ "c_place=( SELECT AREA FROM customer WHERE phone = :phone), \r\n"
