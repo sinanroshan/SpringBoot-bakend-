@@ -69,13 +69,13 @@ public interface CustomerRepository extends JpaRepository<Customer, String>{
 	
 	@Modifying
 	@Transactional
-	@Query(value = "INSERT INTO inv_bill (invno,pid, pname,pqty,pcategory,price,mrp,tprice,order_status) VALUES (:inv,:p_id,:p_name,:p_qty,:pcategory,:price,:mrp,:tprice,:status)", nativeQuery = true)
+	@Query(value = "INSERT INTO invoice (invno,pid, pname,pqty,pcategory,price,mrp,tprice,order_status) VALUES (:inv,:p_id,:p_name,:p_qty,:pcategory,:price,:mrp,:tprice,:status)", nativeQuery = true)
 	public void saveBill(String inv,String p_id, String p_name, String p_qty,String pcategory,String price,String mrp,String tprice,String status);
 
 	@Query(value = "SELECT inv_no,total_amount,prod_qty, order_date, order_status from orders WHERE c_id=:key ORDER BY inv_no DESC",nativeQuery = true)
 	public String[][] getOrder(String key);
 	
-	@Query(value = "SELECT * from inv_bill WHERE invno=:key",nativeQuery = true)
+	@Query(value = "SELECT * from invoice WHERE invno=:key",nativeQuery = true)
 	public List<String[]> getProdList(String key);
 	
 	@Query(value = "SELECT * from orders WHERE inv_no=:key",nativeQuery = true)
@@ -83,12 +83,12 @@ public interface CustomerRepository extends JpaRepository<Customer, String>{
 
 	@Modifying
 	@Transactional
-	@Query(value = "UPDATE inv_bill SET \r\n"
+	@Query(value = "UPDATE invoice SET \r\n"
 			+ "order_status =:status \r\n"
 			+ "WHERE invno =:inv_no And pid=:item" , nativeQuery = true)
 	public void OrderItemStatus(String inv_no,String item, String status );
 
-	@Query(value = "SELECT order_status from inv_bill WHERE invno=:inv",nativeQuery = true)
+	@Query(value = "SELECT order_status from invoice WHERE invno=:inv",nativeQuery = true)
 	public List<String> chekorderStatus(String inv);
 
 	@Modifying
@@ -100,7 +100,7 @@ public interface CustomerRepository extends JpaRepository<Customer, String>{
 	
 	@Modifying
 	@Transactional
-	@Query(value = "UPDATE inv_bill SET \r\n"
+	@Query(value = "UPDATE invoice SET \r\n"
 			+ "order_status =:status \r\n"
 			+ "WHERE invno =:inv_no" , nativeQuery = true)
 	public void setOrderItemStatus(String inv_no, String status );
