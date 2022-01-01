@@ -8,6 +8,8 @@ import javax.persistence.Id;
 public class InvoiceData {
     
     @Id
+    @Column(name = "si_no")
+	private String si;
     @Column(name = "invno")
 	private String invno;
     @Column(name = "pid")
@@ -27,8 +29,9 @@ public class InvoiceData {
     @Column(name = "order_status")
     private String Status;
 
-    public InvoiceData(String invno, String pId, String pName, String qty, String category, String price, String mrp,
-            String tprice, String status) {
+    public InvoiceData(String si, String invno, String pId, String pName, String qty, String category, String price,
+            String mrp, String tprice, String status) {
+        this.si = si;
         this.invno = invno;
         this.pId = pId;
         this.pName = pName;
@@ -43,7 +46,12 @@ public class InvoiceData {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+    public String getSi() {
+        return si;
+    }
+    public void setSi(String si) {
+        this.si = si;
+    }
     public String getInvno() {
         return invno;
     }
@@ -98,4 +106,5 @@ public class InvoiceData {
     public void setStatus(String status) {
         Status = status;
     }
+
 }

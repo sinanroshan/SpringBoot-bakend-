@@ -180,7 +180,7 @@ public class userAuth {
 				String[] tprices=splitValue(p_tprice, qty);
 				
 				Calendar calendar = Calendar.getInstance();
-				SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 				String date=(formatter.format(calendar.getTime()));
 				//Date date= Date.valueOf(d);
 						
