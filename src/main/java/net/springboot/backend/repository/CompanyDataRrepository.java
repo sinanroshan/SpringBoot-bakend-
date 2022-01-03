@@ -11,5 +11,5 @@ import net.springboot.backend.model.CompanyData;
 public interface CompanyDataRrepository extends JpaRepository<CompanyData, Any>{
     
     @Query(value="SELECT * FROM company", nativeQuery = true)
-	public List<CompanyData> getCompany();
+	public CompanyData getCompany();
 }

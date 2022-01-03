@@ -20,7 +20,7 @@ public class CompanyDataContrtoller {
     private CompanyDataRrepository companyDataRrepository;
 
     @GetMapping("/company")
-	public List<CompanyData>
+	public CompanyData
 			GetCompany(){
 		return companyDataRrepository.getCompany();
 	}

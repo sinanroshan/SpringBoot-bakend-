@@ -11,21 +11,21 @@ public class CompanyData {
     
     @Id
     @Column(name = "cmp_name")
-    private String Name;
+    private String name;
     @Column(name = "cmp_add1")
-    private String Address1;
+    private String address1;
     @Column(name = "cmp_add2")
-    private String Addres2;
+    private String address2;
     @Column(name = "cmp_phone")
     private String phone;
-    @Column(name = "cmp_email")
+    @Column(name = "cmp_mail")
     private String email;
     @Column(name = "cmp_site")
     private String website;
     @Column(name = "cmp_gstno")
     private String gstNo;
     @Column(name = "cmp_city")
-    private String City;
+    private String city;
     @Column(name = "cmp_state")
     private String state;
     @Column(name = "cmp_country")
@@ -34,7 +34,7 @@ public class CompanyData {
     private String bank;
     @Column(name = "cmp_bbranch")
     private String bankBranch;
-    @Column(name = "cmp_bifce")
+    @Column(name = "cmp_bifsc")
     private String bankIfce;
     @Column(name = "cmp_baccountno")
     private String bankAccNO;
@@ -43,14 +43,14 @@ public class CompanyData {
     public CompanyData(String name, String address1, String addres2, String phone, String email, String website,
             String gstNo, String city, String state, String country, String bank, String bankBranch, String bankIfce,
             String bankAccNO, String logo) {
-        Name = name;
-        Address1 = address1;
-        Addres2 = addres2;
+        this.name = name;
+        this.address1 = address1;
+        this.address2 = addres2;
         this.phone = phone;
         this.email = email;
         this.website = website;
         this.gstNo = gstNo;
-        City = city;
+        this.city = city;
         this.state = state;
         this.country = country;
         this.bank = bank;
@@ -66,22 +66,22 @@ public class CompanyData {
 
 
     public String getName() {
-        return Name;
+        return name;
     }
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
     public String getAddress1() {
-        return Address1;
+        return address1;
     }
     public void setAddress1(String address1) {
-        Address1 = address1;
+        this.address1 = address1;
     }
     public String getAddres2() {
-        return Addres2;
+        return address2;
     }
     public void setAddres2(String addres2) {
-        Addres2 = addres2;
+        this.address2 = addres2;
     }
     public String getPhone() {
         return phone;
@@ -108,10 +108,10 @@ public class CompanyData {
         this.gstNo = gstNo;
     }
     public String getCity() {
-        return City;
+        return city;
     }
     public void setCity(String city) {
-        City = city;
+        this.city = city;
     }
     public String getState() {
         return state;
