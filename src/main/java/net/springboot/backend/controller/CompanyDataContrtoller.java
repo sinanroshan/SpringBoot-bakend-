@@ -26,7 +26,7 @@ public class CompanyDataContrtoller {
 		return companyDataRrepository.getCompany();
 	}
 
-	@RequestMapping(path = "EditProduct/",method = RequestMethod.POST)
+	@RequestMapping(path = "/editCompanyData",method = RequestMethod.POST)
 	public String EditProduct(@RequestBody CompanyData data) {
 			companyDataRrepository.updateData(data.getName(),data.getAddress1(),data.getAddres2(),data.getPhone(),data.getEmail(),data.getWebsite(),data.getGstNo(),data.getCity(),data.getState(),data.getCountry(),data.getBank(),data.getBankBranch(),data.getBankIfce(),data.getBankAccNO(),data.getLogo());
 			return "Updated";
