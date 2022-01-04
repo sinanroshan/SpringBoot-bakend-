@@ -1,9 +1,6 @@
 package net.springboot.backend.repository;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
-import javax.xml.crypto.Data;
 
 import org.hibernate.annotations.Any;
 import org.springframework.data.jpa.repository.JpaRepository;
