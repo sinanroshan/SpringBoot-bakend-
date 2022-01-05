@@ -19,7 +19,7 @@ import net.springboot.backend.repository.CustomerRepository;
 @RestController
 @CrossOrigin
 @RequestMapping("/auth")
-public class userAuth {
+public class CustomerAuth {
 	
 	@Autowired
 	private CustomerRepository customerRepository;
