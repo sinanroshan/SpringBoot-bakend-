@@ -13,13 +13,13 @@ import net.springboot.backend.repository.EpmloyeeRepository;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/console")
 public class ConsoleAuth {
     
     @Autowired
     private EpmloyeeRepository epmloyeeRepository;
 
-	@RequestMapping(path="/AuthGuard/{key}",method = RequestMethod.GET)
+	@RequestMapping(path="/Auth/{key}",method = RequestMethod.GET)
 	public String Authenticate(@PathVariable String key) {
 		byte[] decoded=Base64.getDecoder().decode(key);
 		String securityKey= new String(decoded);
@@ -32,7 +32,6 @@ public class ConsoleAuth {
 		}
 		else {
 			return generateToken(username, password);
-			//return HttpStatus.OK;
 		}
 	}
 	
