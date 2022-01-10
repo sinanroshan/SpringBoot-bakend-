@@ -84,13 +84,16 @@ public class ConsoleProductController {
 		return consoleRepository.getPnames(key);
 	}
 	@RequestMapping(path = "Ledger/{pname}",method = RequestMethod.GET)
-	public List<String[]> getLedger(@PathVariable String pname){
+	public String[] getLedger(@PathVariable String pname){
 		String[] inv = consoleRepository.getprodInv(pname);
-		for(int i=0; i<inv.length;i++){
+		int qty=inv.length;
+		System.out.println(qty);
+		for(int i=0; i<=qty;i++){
 			String[] Temp= consoleRepository.getOrderData(inv[i],pname);
-			consoleRepository.setTable(pname,Temp[2],Temp[3],Temp[4],Temp[5],Temp[6],Temp[7]);
+			System.out.println(Temp[2]);
+			consoleRepository.setTable(Temp[0],Temp[2],Temp[3],Temp[4],Temp[5],Temp[6],Temp[7]);
 		}
-		return null;
+		return inv;
 	}
 			
 }
