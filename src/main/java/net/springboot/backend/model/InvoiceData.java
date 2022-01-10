@@ -3,13 +3,15 @@ package net.springboot.backend.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "invoice")
 public class InvoiceData {
     
     @Id
     @Column(name = "si_no")
-	private String si;
+	private int si;
     @Column(name = "invno")
 	private String invno;
     @Column(name = "pid")
@@ -29,7 +31,7 @@ public class InvoiceData {
     @Column(name = "order_status")
     private String Status;
 
-    public InvoiceData(String si, String invno, String pId, String pName, String qty, String category, String price,
+    public InvoiceData(int si, String invno, String pId, String pName, String qty, String category, String price,
             String mrp, String tprice, String status) {
         this.si = si;
         this.invno = invno;
@@ -46,10 +48,10 @@ public class InvoiceData {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-    public String getSi() {
+    public int getSi() {
         return si;
     }
-    public void setSi(String si) {
+    public void setSi(int si) {
         this.si = si;
     }
     public String getInvno() {

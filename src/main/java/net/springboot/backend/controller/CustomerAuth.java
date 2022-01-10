@@ -183,7 +183,7 @@ public class CustomerAuth {
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 				String date=(formatter.format(calendar.getTime()));
 				//Date date= Date.valueOf(d);
-						
+				
 				String status="Order confirmed"; 
 				customerRepository.saveOrder(phone, qty, total_price,date, status);
 				String[] s= customerRepository.getInv();

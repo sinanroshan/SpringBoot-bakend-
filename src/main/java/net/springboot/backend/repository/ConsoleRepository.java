@@ -1,5 +1,6 @@
 package net.springboot.backend.repository;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -39,6 +40,18 @@ public interface ConsoleRepository extends JpaRepository<ConsoleProduct, Any>{
     @Query(value="SELECT p_name from product WHERE p_name like :key% ", nativeQuery = true)
     public List<String> getPnames(String key);
 
-    @Query(value="SELECT * from invoice WHERE pname like :p_name ", nativeQuery = true)
-    public List<String> getprodInv(String p_name);
+    //@Query(value="SELECT invno,pname,pqty,tprice,order_status from invoice WHERE pname =:p_name ", nativeQuery = true)
+    @Query(value="select invno from invoice where pname =:p_name", nativeQuery = true)
+    public String[] getprodInv(String p_name);
+
+    @Query(value="SELECT pname,pid,invno,pqty,tprice , a.c_id,a.order_date,a.c_fullname \r\n"
+                    +"FROM orders a, invoice b WHERE b.invno =:invNo AND a.inv_no =:invNo\r\n"
+                    +"AND b.pname=:p_name ", nativeQuery = true)
+    public String[] getOrderData(String invNo,String p_name);
+
+    @Modifying
+	@Transactional
+    @Query(value="INSERT INTO temp_pdt_flow (inv,stock,party,party_id,date,rate1,descr) \r\n"
+                    +"VALUES (:inv,:qty,:c_name,:c_id,:date,:tprice,:pname)", nativeQuery = true)
+    public void setTable(String pname, String inv, String qty, String tprice, String c_id, String date, String c_name);
 }

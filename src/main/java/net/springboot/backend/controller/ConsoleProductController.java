@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import lombok.var;
 import net.springboot.backend.model.ConsoleProduct;
 import net.springboot.backend.repository.ConsoleRepository;
 
@@ -83,8 +84,13 @@ public class ConsoleProductController {
 		return consoleRepository.getPnames(key);
 	}
 	@RequestMapping(path = "Ledger/{pname}",method = RequestMethod.GET)
-	public List<String> getLedger(@PathVariable String pname){
-		return consoleRepository.getprodInv(pname);
+	public List<String[]> getLedger(@PathVariable String pname){
+		String[] inv = consoleRepository.getprodInv(pname);
+		for(int i=0; i<inv.length;i++){
+			String[] Temp= consoleRepository.getOrderData(inv[i],pname);
+			consoleRepository.setTable(pname,Temp[2],Temp[3],Temp[4],Temp[5],Temp[6],Temp[7]);
+		}
+		return null;
 	}
 			
 }
