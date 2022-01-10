@@ -56,7 +56,7 @@ public class ConsoleProductController {
 
     @PostMapping(value =  "/AddProduct")
 	public String Addproduct(@RequestBody ConsoleProduct product){
-		System.out.println(product.getName());
+		System.out.println(product.getCurrent_Stock());
 			consoleRepository.saveProduct(product.getName(), product.getProductID(),product.getBarcode(),product.getCategory(),product.getSub_Category(),
 				product.getUnit(),product.getHsn_Code(),product.getGst(),product.getCess(),product.getCurrent_Stock(),product.getOpening_Stock(),
 				product.getPurchase_Rate(),product.getRetail_Rate(),product.getMrp(),product.getCost(),product.getWhole_Rate(),product.getKeyImage(),
