@@ -82,5 +82,9 @@ public class ConsoleProductController {
 	public List<String> serachKey(@PathVariable String key){
 		return consoleRepository.getPnames(key);
 	}
+	@RequestMapping(path = "Ledger/{pname}",method = RequestMethod.GET)
+	public List<String> getLedger(@PathVariable String pname){
+		return consoleRepository.getprodInv(pname);
+	}
 			
 }

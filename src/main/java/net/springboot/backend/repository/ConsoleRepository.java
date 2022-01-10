@@ -38,4 +38,7 @@ public interface ConsoleRepository extends JpaRepository<ConsoleProduct, Any>{
 
     @Query(value="SELECT p_name from product WHERE p_name like :key% ", nativeQuery = true)
     public List<String> getPnames(String key);
+
+    @Query(value="SELECT * from invoice WHERE pname like :p_name ", nativeQuery = true)
+    public List<String> getprodInv(String p_name);
 }
