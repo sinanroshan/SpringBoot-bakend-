@@ -16,8 +16,9 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import lombok.var;
+import net.springboot.backend.model.ConsoleLedger;
 import net.springboot.backend.model.ConsoleProduct;
+import net.springboot.backend.repository.ConsoleLedgerRepo;
 import net.springboot.backend.repository.ConsoleRepository;
 
 @CrossOrigin
@@ -26,6 +27,8 @@ import net.springboot.backend.repository.ConsoleRepository;
 public class ConsoleProductController {
     @Autowired
     private ConsoleRepository consoleRepository;
+	@Autowired
+	private ConsoleLedgerRepo LedgerRepo;
 
     @GetMapping("/Allproducts")
 	// get all Products
@@ -84,16 +87,15 @@ public class ConsoleProductController {
 		return consoleRepository.getPnames(key);
 	}
 	@RequestMapping(path = "Ledger/{pname}",method = RequestMethod.GET)
-	public String[] getLedger(@PathVariable String pname){
+	public List<ConsoleLedger> getLedger(@PathVariable String pname){
 		String[] inv = consoleRepository.getprodInv(pname);
+		LedgerRepo.resetTempTable();
 		int qty=inv.length;
-		System.out.println(qty);
-		for(int i=0; i<=qty;i++){
-			String[] Temp= consoleRepository.getOrderData(inv[i],pname);
-			System.out.println(Temp[2]);
-			consoleRepository.setTable(Temp[0],Temp[2],Temp[3],Temp[4],Temp[5],Temp[6],Temp[7]);
+		for(int i=0; i<qty;i++){
+			String[][] Temp= consoleRepository.getOrderData(inv[i],pname);
+			LedgerRepo.setTable(Temp[0][2],Temp[0][3],Temp[0][4],Temp[0][5],Temp[0][6],Temp[0][7]);
 		}
-		return inv;
+		return LedgerRepo.getLedger();
 	}
 			
 }
