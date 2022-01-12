@@ -237,8 +237,8 @@ public class CustomerAuth {
 	
 	public void chekOrder(String invNo){
 		List<String> status= customerRepository.chekorderStatus(invNo);
-		boolean cancelOrder= status.stream().allMatch(str -> str.equals("Order Cancelled"));
-		if(cancelOrder){customerRepository.OrderStatus(invNo, "Order Cancelled");}
+		boolean cancelOrder= status.stream().allMatch(str -> str.equals("Cancelled"));
+		if(cancelOrder){customerRepository.OrderStatus(invNo, "Cancelled");}
 	}
 
 	@RequestMapping(path="/OrderStatus/{inv_no}/{status}",method = RequestMethod.GET)
