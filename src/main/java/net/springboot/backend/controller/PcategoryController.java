@@ -25,4 +25,9 @@ public class PcategoryController {
 	public List<PCategory> getCategory(@PathVariable String SuperCategory) {
 			return pCategoryRepository.findBySuperCategory(SuperCategory);
 			}
+
+	@RequestMapping(path="/getCatList",method = RequestMethod.GET)
+	public List<PCategory> getCategory() {
+			return pCategoryRepository.AllCategoris();
+			}
 }
