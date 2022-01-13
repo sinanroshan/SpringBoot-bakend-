@@ -61,6 +61,9 @@ public class ConsoleProduct {
     @Column(name = "p_srate2")
 	private String whole_Rate;
 
+    @Column(name = "p_discription")
+    private String discription;
+
     @Column(name = "p_photo")
     private String KeyImage;
 
@@ -79,7 +82,7 @@ public class ConsoleProduct {
     public ConsoleProduct(Integer productID, String name, String barcode, String category, String sub_Category,
             String unit, String hsn_Code, String gst, Integer cess, String current_Stock, String opening_Stock,
             String purchase_Rate, String retail_Rate, String mrp, String cost, String whole_Rate, String keyImage,
-            String image1, String image2, String image3, String image4) {
+            String image1, String image2, String image3, String image4,String discription) {
         this.productID = productID;
         this.name = name;
         this.barcode = barcode;
@@ -96,6 +99,7 @@ public class ConsoleProduct {
         this.mrp = mrp;
         this.cost = cost;
         this.whole_Rate = whole_Rate;
+        this.discription = discription;
         KeyImage = keyImage;
         this.image1 = image1;
         this.image2 = image2;
@@ -202,6 +206,15 @@ public class ConsoleProduct {
     public void setWhole_Rate(String whole_Rate) {
         this.whole_Rate = whole_Rate;
     }
+
+    public String getDiscription() {
+        return discription;
+    }
+
+    public void setDiscription(String discription) {
+        this.discription = discription;
+    }
+
     public String getKeyImage() {
         return KeyImage;
     }

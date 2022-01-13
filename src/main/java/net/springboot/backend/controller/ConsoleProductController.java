@@ -2,6 +2,8 @@ package net.springboot.backend.controller;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,11 +62,14 @@ public class ConsoleProductController {
 
     @PostMapping(value =  "/AddProduct")
 	public String Addproduct(@RequestBody ConsoleProduct product){
-		System.out.println(product.getCurrent_Stock());
+		Calendar calendar = Calendar.getInstance();
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+				String date=(formatter.format(calendar.getTime()));
+				
 			consoleRepository.saveProduct(product.getName(), product.getProductID(),product.getBarcode(),product.getCategory(),product.getSub_Category(),
 				product.getUnit(),product.getHsn_Code(),product.getGst(),product.getCess(),product.getCurrent_Stock(),product.getOpening_Stock(),
 				product.getPurchase_Rate(),product.getRetail_Rate(),product.getMrp(),product.getCost(),product.getWhole_Rate(),product.getKeyImage(),
-				product.getImage1(),product.getImage2(),product.getImage3(),product.getImage4(),"PDT"+product.getBarcode());
+				product.getImage1(),product.getImage2(),product.getImage3(),product.getImage4(),"PDT"+product.getBarcode(),date,product.getDiscription());
 			return "sved";
 			}
 	
@@ -73,7 +78,7 @@ public class ConsoleProductController {
 			consoleRepository.UpdateProduct(key,product.getName(), product.getProductID(),product.getBarcode(),product.getCategory(),product.getSub_Category(),
 			product.getUnit(),product.getHsn_Code(),product.getGst(),product.getCess(),product.getCurrent_Stock(),product.getOpening_Stock(),
 			product.getPurchase_Rate(),product.getRetail_Rate(),product.getMrp(),product.getCost(),product.getWhole_Rate(),product.getKeyImage(),
-			product.getImage1(),product.getImage2(),product.getImage3(),product.getImage4() );
+			product.getImage1(),product.getImage2(),product.getImage3(),product.getImage4(),product.getDiscription() );
 			return "Updated";
 			}	
 	//

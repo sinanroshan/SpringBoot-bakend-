@@ -25,7 +25,9 @@ public class Product {
 		
 		@Column(name = "Supplierid")
 	    private String SupplierId;
-		
+
+		@Column(name = "p_discription")
+		private String discription;
 
 		@Column(name = "p_photo")
 		private String KeyImage;
@@ -45,13 +47,15 @@ public class Product {
 		@Column(name = "p_category")
 		private String pcategory;
 
-		public Product(String productId, String price, String pname, String mrp, String supplierId, String keyImage,
-				String image1, String image2, String image3, String image4, String pcategory) {
+
+		public Product(String productId, String price, String pname, String mrp, String supplierId, String discription,
+				String keyImage, String image1, String image2, String image3, String image4, String pcategory) {
 			this.productId = productId;
 			Price = price;
 			this.pname = pname;
 			Mrp = mrp;
 			SupplierId = supplierId;
+			this.discription = discription;
 			KeyImage = keyImage;
 			this.image1 = image1;
 			this.image2 = image2;
@@ -59,6 +63,7 @@ public class Product {
 			this.image4 = image4;
 			this.pcategory = pcategory;
 		}
+
 		public Product() {
 			super();
 			// TODO Auto-generated constructor stub
@@ -102,6 +107,14 @@ public class Product {
 
 		public void setSupplierId(String supplierId) {
 			SupplierId = supplierId;
+		}
+
+		public String getDiscription() {
+			return discription;
+		}
+
+		public void setDiscription(String discription) {
+			this.discription = discription;
 		}
 
 		public String getKeyImage() {
@@ -151,5 +164,6 @@ public class Product {
 		public void setPcategory(String pcategory) {
 			this.pcategory = pcategory;
 		}
+
 			
 }
