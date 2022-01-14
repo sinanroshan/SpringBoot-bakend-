@@ -20,14 +20,20 @@ public class ConsoleLedger {
     private String c_id;
     @Column(name="rate")
     private String amound;
+    @Column(name="form")
+    private String type;
 
-    public ConsoleLedger(String invNo, String date, String qty, String customer, String c_id, String amound) {
+
+
+    public ConsoleLedger(String invNo, String date, String qty, String customer, String c_id, String amound,
+            String type) {
         this.invNo = invNo;
         this.date = date;
         this.qty = qty;
         this.customer = customer;
         this.c_id = c_id;
         this.amound = amound;
+        this.type = type;
     }
 
     public ConsoleLedger() {
@@ -81,5 +87,14 @@ public class ConsoleLedger {
 
     public void setAmound(String amound) {
         this.amound = amound;
-    }  
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+    
 }

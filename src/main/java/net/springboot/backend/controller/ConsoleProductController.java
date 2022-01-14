@@ -95,6 +95,7 @@ public class ConsoleProductController {
 	public List<ConsoleLedger> getLedger(@PathVariable String pname){
 		String[] inv = consoleRepository.getprodInv(pname);
 		LedgerRepo.resetTempTable();
+		LedgerRepo.getPurchase(pname);
 		int qty=inv.length;
 		for(int i=0; i<qty;i++){
 			String[][] Temp= consoleRepository.getOrderData(inv[i],pname);
@@ -102,5 +103,4 @@ public class ConsoleProductController {
 		}
 		return LedgerRepo.getLedger();
 	}
-			
 }
