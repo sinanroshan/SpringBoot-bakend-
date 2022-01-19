@@ -3,6 +3,7 @@ package net.springboot.backend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,12 +22,13 @@ public class productController {
 	@Autowired
 	private ProductRepository productRepository;
 	
-	//@GetMapping("/products")
-	// get all Products
-	//		public List<Product>
-	//		getAllProducts(){
-	//	return productRepository.findAll();	
-	//}
+
+	//toget randome Products
+	@GetMapping("/products")
+			public List<Product>
+			getrandmProducts(){
+		return productRepository.rnandom();	
+	}
 	
 	@RequestMapping(path="/products/{Category}",method = RequestMethod.GET)
 	public List<Product> getProducts(@PathVariable String Category) {
@@ -47,6 +49,7 @@ public class productController {
 			return productRepository.findByProductId(name);
 	}
 	
+
 	
 	//@PostMapping("/save/product")
 	//public void createProduct( @RequestParam ("product") String product) throws IOException, JsonMappingException, JsonProcessingException {

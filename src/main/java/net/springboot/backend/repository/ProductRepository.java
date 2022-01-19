@@ -29,4 +29,7 @@ public interface ProductRepository extends CrudRepository<Product, Any>{
 	@Query(value = "SELECT * FROM product WHERE product.p_name =:pname" , nativeQuery = true)
 	public List<Product>findByProductId(String pname);
 
+	@Query(value = "SELECT * FROM product ORDER BY RAND() LIMIT 16" , nativeQuery = true)
+	public List<Product>rnandom();
+
 }
