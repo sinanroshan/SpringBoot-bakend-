@@ -48,7 +48,11 @@ public class productController {
 	public List<Product> getProduct(@PathVariable String name) {
 			return productRepository.findByProductId(name);
 	}
-	
+	@RequestMapping(path = "suggesion/{key}",method = RequestMethod.GET)
+	public List<Product> suggList(@PathVariable String key){
+		String category= productRepository.getPcategory(key);
+		return productRepository.getSuggesionList(category);
+	}
 
 	
 	//@PostMapping("/save/product")

@@ -32,4 +32,9 @@ public interface ProductRepository extends CrudRepository<Product, Any>{
 	@Query(value = "SELECT * FROM product ORDER BY RAND() LIMIT 16" , nativeQuery = true)
 	public List<Product>rnandom();
 
+	@Query(value = "SELECT p_category FROM product WHERE product.p_name =:product" , nativeQuery = true)
+	public String getPcategory(String product);
+
+	@Query(value = "SELECT * FROM product where p_category=:category ORDER BY RAND() LIMIT 8" , nativeQuery = true)
+	public List<Product> getSuggesionList(String category);
 }
